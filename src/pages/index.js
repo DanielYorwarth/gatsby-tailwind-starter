@@ -20,9 +20,9 @@ const IndexPage = () => {
           src={catAndHumanIllustration}
         />
 
-        <h2 className="inline-block p-3 mb-4 text-2xl font-bold bg-yellow-400">
+        <h1 className="inline-block p-3 mb-4 text-4xl">
           Hey there! Welcome to your first Gatsby site.
-        </h2>
+        </h1>
 
         <p className="leading-loose">
           This is a barebones starter for Gatsby styled using{` `}

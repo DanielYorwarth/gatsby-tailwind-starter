@@ -5,8 +5,8 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
+    title: `Volley Digital Static Starter`,
+    description: `A basic Starter theme for static site generation with Contentful`,
     author: `@volleydigital`,
     siteUrl: `localhost:8000`
   },
@@ -18,21 +18,30 @@ module.exports = {
         name: `gatsby-starter-tailwind`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: fullConfig.theme.colors.white,
-        theme_color: fullConfig.theme.colors.black,
+        background_color: fullConfig.theme.colors.white.default,
+        theme_color: fullConfig.theme.colors.black.default,
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`,
+        icon: `src/images/favicon.png`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //     spaceId: `enter-id`,
+    //     // Learn about environment variables: https://gatsby.dev/env-vars
+    //     accessToken: 'enter-token',
+    //     downloadLocal: true,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require(`tailwindcss`)(tailwindConfig),
+          require(`tailwindcss`)(fullConfig),
           ...(process.env.NODE_ENV === `production`
             ? [require(`cssnano`)]
             : []),
-            require(`autoprefixer`)
+            require(`autoprefixer`),
         ],
       },
     },
@@ -54,11 +63,11 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`, 
     `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     //trackingId: `ADD YOUR TRACKING ID HERE`,
+    //   },
+    // },
   ],
 };

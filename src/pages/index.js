@@ -1,44 +1,36 @@
 import React from "react";
+import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
-
-const IndexPage = () => {
-  return (
-    <Layout>
-      <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="Home"
-      />
-
-      <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block w-1/2 mx-auto mb-8"
-          src={catAndHumanIllustration}
+const IndexPage = () => (
+  <StaticQuery  
+    query={query}
+    render={data => {
+   
+    return (
+      <Layout>
+        <SEO
+          keywords={""}
+          title="Home"
         />
-
-        <h1 className="inline-block p-3 mb-4 text-4xl">
-          Hey there! Welcome to your first Gatsby site.
-        </h1>
-
-        <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{` `}
-          <a
-            className="font-bold text-gray-900 no-underline"
-            href="https://tailwindcss.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Tailwind CSS
-          </a>
-          , a utility-first CSS framework.
-        </p>
-      </section>
-    </Layout>
-  );
-}
+        HOME
+      </Layout>
+    )
+  }} />
+)
 
 export default IndexPage;
+
+const query = graphql`
+  query {
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fluid(quality: 50, maxWidth: 300) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`

@@ -1,6 +1,17 @@
 import Typography from "typography"
-import SutroTheme from 'typography-theme-sutro';
 
-const typography = new Typography(SutroTheme)
+const typography = new Typography({
+  includeNormalize: false,
+  baseFontSize: "18px",
+  baseLineHeight: 1.666,
+  headerFontFamily: [
+    "montserrat",
+    "sans-serif",
+  ],
+  bodyFontFamily: ["montserrat", "sans-serif"],
+  bodyWeight: '300',
+  bodyGray: 60,
+  bodyGrayHue: 80
+})
 
 export default typography

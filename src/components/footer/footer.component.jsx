@@ -1,31 +1,28 @@
 import React from 'react';
+import {Link} from 'gatsby';
 
-const Footer = () => (
-    <footer className="bg-blue-700">
-        <nav className="flex justify-between max-w-4xl p-4 mx-auto text-sm md:p-8">
-        <p className="text-white">
-            Created by{` `}
-            <a
-            className="font-bold no-underline"
-            href="https://bryant.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            Taylor Bryant
-            </a>
-        </p>
+import logo from '../../images/favicon.png'
 
+const Footer = ({menu}) => (
+    <footer className="bg-white-100">
+      <div className="md:flex justify-between items-center max-w-screen-2xl px-6 py-10 mx-auto text-sm md:p-8 text-center ">
+       <img src={logo} className="mb-4 md:mb-0 mx-auto md:mx-0 w-8" alt="Volley Digital" />
+       <nav className={`md:block md:items-center w-full md:w-auto text-sm mb-4 md:mb-0`} >
+            {menu && menu.map((link) => (
+              <Link
+                className="block md:inline-block px-0 md:px-2 xl:px-6 heading-font duration-300 hover:text-primary-dark"
+                key={link.text}
+                to={link.url}
+                activeClassName="font-semibold text-primary-dark heading-font"
+              >
+                {link.text}
+              </Link>
+            ))}
+          </nav>
         <p>
-            <a
-            className="font-bold text-white no-underline"
-            href="https://github.com/taylorbryant/gatsby-starter-tailwind"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            GitHub
-            </a>
+         © All rights reserved
         </p>
-        </nav>
+      </div>
     </footer>
 )
 
